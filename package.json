@@ -1,0 +1,24 @@
+{
+  "name": "tasks-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zacharyjbaldwin/tasks.git"
+  },
+  "author": "Zachary Baldwin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zacharyjbaldwin/tasks/issues"
+  },
+  "homepage": "https://github.com/zacharyjbaldwin/tasks#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "morgan": "^1.10.0"
+  }
+}
