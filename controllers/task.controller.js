@@ -49,6 +49,21 @@ module.exports.createTask = (req, res) => {
         });
 };
 
+module.exports.deleteTaskByDay = (req, res) => {
+    const day = req.params.day;
+    Task.deleteMany({ day: req.params.day })
+        .then((response) => {
+            res.status(204).json({
+                message: 'Deleted tasks.'
+            })
+        })
+        .catch((error) => {
+            res.status(500).json({
+                error: 'Failed to delete tasks.'
+            });
+        });
+};
+
 module.exports.deleteTask = (req, res) => {
     Task.findOneAndDelete({_id: req.params.taskId})
         .then((response) => {
@@ -70,16 +85,16 @@ module.exports.updateTaskStatus = (req, res) => {
         });
     }
 
-    Task.findByIdAndUpdate(req.params.taskId, { completed: req.body.completed }, { new: true })
+    Task.findByIdAndUpdate(req.params.taskId, { completed: req.body.completed, description: req.body.description }, { new: true })
         .then((task) => {
             res.status(200).json({
-                message: 'Updated task status.',
+                message: 'Updated task information.',
                 task: task
             })
         })
         .catch((error) => {
             res.status(500).json({
-                error: 'Failed to udpate task status.'
+                error: 'Failed to udpate task information.'
             });
         });
 };
