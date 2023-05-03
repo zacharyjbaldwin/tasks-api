@@ -17,10 +17,10 @@ mongoose.connect(MONGO_DB_URI)
 const app = express();
 
 app.use(express.json());
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Wish, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
