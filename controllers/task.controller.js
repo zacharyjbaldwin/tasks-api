@@ -85,7 +85,7 @@ module.exports.updateTaskStatus = (req, res) => {
         });
     }
 
-    Task.findByIdAndUpdate(req.params.taskId, { completed: req.body.completed, description: req.body.description }, { new: true })
+    Task.findByIdAndUpdate(req.params.taskId, { completed: req.body.completed, description: req.body.description, day: req.body.day }, { new: true })
         .then((task) => {
             res.status(200).json({
                 message: 'Updated task information.',
